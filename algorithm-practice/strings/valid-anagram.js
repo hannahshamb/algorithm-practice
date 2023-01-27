@@ -17,7 +17,6 @@ var isAnagram = function (s, t) {
       return false;
     }
   }
-
   return anagram;
 }
 console.log('isAnagram("anagram", "nagaram")', isAnagram('anagram', 'nagaram'));
