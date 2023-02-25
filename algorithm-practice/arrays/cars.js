@@ -92,7 +92,6 @@ function sortByYear(a, b) {
   }
 }
 const orderedCars = rangedCars.sort(sortByYear)
-
 console.log('orderedCars', orderedCars);
 
 
