@@ -18,7 +18,7 @@ var isValid = function (s) {
   let heap = [];
 
 
-  for (let i = 0; i <s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     if(bracket[s[i]]) {
       heap.push(bracket[s[i]]);
     } else {
