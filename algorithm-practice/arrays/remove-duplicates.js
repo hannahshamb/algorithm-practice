@@ -30,18 +30,22 @@ var removeDuplicates = function (nums) {
   let k = 1;
 
   for (let i = 0; i < nums.length - 1; i++) {
+    console.log('nums[i],', nums[i], 'nums[i + 1]', nums[i+1])
     if (nums[i] !== nums[i+1]) {
       nums[k] = nums[i+1];
       k++
     }
   }
+  console.log('nums', nums)
   return k;
 };
 
 //Input: nums = [1,1,2]
 //Output: 2, nums = [1, 2, _]
-console.log(removeDuplicates([1, 1, 2]))
+// console.log(removeDuplicates([1, 1, 2]))
 
 // Input: nums = [0,0,1,1,1,2,2,3,3,4]
 // Output: 5, nums = [0, 1, 2, 3, 4, _, _, _, _, _]
 console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+
+console.log(removeDuplicates([1, 2, 3, 3, 4, 4]))
