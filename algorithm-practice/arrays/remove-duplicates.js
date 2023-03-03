@@ -30,13 +30,11 @@ var removeDuplicates = function (nums) {
   let k = 1;
 
   for (let i = 0; i < nums.length - 1; i++) {
-    console.log('nums[i],', nums[i], 'nums[i + 1]', nums[i+1])
     if (nums[i] !== nums[i+1]) {
       nums[k] = nums[i+1];
       k++
     }
   }
-  console.log('nums', nums)
   return k;
 };
 
@@ -49,3 +47,20 @@ var removeDuplicates = function (nums) {
 console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
 
 console.log(removeDuplicates([1, 2, 3, 3, 4, 4]))
+
+
+// 1. Create a pointer and set it to 1 (will compare against 0th index of the loop
+//which will always be a unique value)
+// 2. Loop through the array, initialize i at 0, looping until 1 before the array.length
+// (since you will be comparing i and i+1 so need to stop before i+1 is undefined)
+// 3. Create an if statement to check if array[i] is not strictly equal to array[i+1]
+// 4. If they are NOT equal, set array[pointer variable value] equal to array[i+1]
+// 5. Increment the pointer variable
+// 6. Return the pointer variable (since incrementing each time, will be the
+//same length as the number of unique values)
+
+
+// QUESTION: When I read the name of the function and the question, I thought
+// we had to DELETE the duplicates in the array and spit back a new array.
+// Confused how this solution I found changes the original array but does NOT
+// delete the duplicated values?
