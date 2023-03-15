@@ -50,11 +50,13 @@ the length of nums and incrementing i on each loop
 
 var containsDuplicatesSet = function (nums) {
   const set = new Set();
+  console.log('set', set);
   for (let i = 0; i < nums.length; i++) {
     if (set.has(nums[i])) {
       return true;
     }
     set.add(nums[i]);
+    console.log('set in loop', set, 'at i', i)
   }
   //Checking what is in the set to make sure it is what was expected if it's false
   console.log('set', set)
