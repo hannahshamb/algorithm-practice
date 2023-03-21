@@ -34,11 +34,16 @@ parseInt method
 
 
 ABOVE only works if you convert it to an array first
+//Modified psuedo code above per note to convert to string first
+//Added condition to check that solution is not greater than 2 to the 31th power
 */
 
 var reverse = function(x) {
   const negative = x < 0 ? true : false;
-  let xString = x.toString();
+  let xString = x.toString().split("");
+  123
+  "123"
+  ["1", "2", "3"]
   //Testing if conversion worked
   console.log('xString', xString, typeof xString)
   console.log(xString[0])
@@ -54,9 +59,36 @@ var reverse = function(x) {
     right--
   }
   console.log(xString)
-  const newX = negative ? -parseInt(xString, 10) : parseInt(xString, 10);
-  return newX
+  const solution = xString.join('');
+  console.log('solution', solution)
+  const newX = negative ? -parseInt(solution, 10) : parseInt(solution, 10);
+  return (newX > 2**31 -1) ? 0 : newX;
 };
 
 //TEST 1
 console.log('reverse(123)', reverse(123))
+
+
+/* DIFFERENT APPROACH - Split, reverse and join
+1. Call the toString method on the x object with no arguments,
+chain and call the split method with single quotes as the argument, chain and
+call the reverse method with no arguments, and chain and call the join method with
+single quotes as the argument
+This will turn the x object into a string, split the string it into an array,
+reverse the order of the items in the array, and rejoin the array and change it
+back into a string (joining together)
+2. Check if the solution is within bounds (if it is greater than 2 to the
+power of 31 minus one, ensure to return 0), else return the number value of
+the solution using parseInt
+*/
+
+
+
+var reverse = function (x) {
+  if (x < 0) return -1 * reverse(-x);
+  const solution = x.toString().split('').reverse().join('');
+  return (solution > 2**31 -1) ? 0 : parseInt(solution, 10);
+};
+
+// //TEST 1
+console.log('reverse(123)', reverse(123));
