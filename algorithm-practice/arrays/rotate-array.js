@@ -30,3 +30,30 @@ return nums;
 };
 
 console.log('Test 1: rotate([1, 2, 3, 4, 5, 6, 7], 3)', rotate([1, 2, 3, 4, 5, 6, 7], 3))
+
+/*
+APPROACH 2: Slice & Flatten
+1. Slice the nums array starting at k + 1 index and assign that value output to
+a new variable called beginningValues
+2. Slice the nums array starting at index 0 and ending at -k and assign that value
+to a new variable called endValues
+3. Reassign nums with the value of a new flattened array that contains beginningValues
+and endValues
+4. Return nums
+*/
+
+var rotate2 = function (nums, k) {
+  const beginningValues = nums.slice(k + 1);
+  const endValues = nums.slice(0, -k)
+  // console.log(beginningValues)
+  // console.log(endValues)
+  nums = [beginningValues, endValues].flat()
+  console.log(nums)
+  return nums;
+};
+
+console.log('Test 1: rotate2([1, 2, 3, 4, 5, 6, 7], 3)', rotate2([1, 2, 3, 4, 5, 6, 7], 3))
+
+/*
+APPROACH 3: Reverse???
+*/
