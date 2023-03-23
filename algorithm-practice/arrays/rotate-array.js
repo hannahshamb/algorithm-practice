@@ -55,5 +55,24 @@ var rotate2 = function (nums, k) {
 console.log('Test 1: rotate2([1, 2, 3, 4, 5, 6, 7], 3)', rotate2([1, 2, 3, 4, 5, 6, 7], 3))
 
 /*
-APPROACH 3: Reverse???
+APPROACH 3: For Loop
 */
+
+var rotate3 = function (nums, k) {
+
+  //replace the first part of the array
+  for (let i = nums.length - 1; i >= 0; i--) {
+    nums[i + k] = nums[i]
+  }
+
+  //replace the current part with teh last values of the array (until you have
+  //reached k's amount to replace)
+  for (let i = k - 1; i >= 0; i--) {
+    nums[i] = nums.pop()
+  }
+
+  return nums
+
+};
+
+console.log('Test 1: rotate3([1, 2, 3, 4, 5, 6, 7], 3)', rotate3([1, 2, 3, 4, 5, 6, 7], 3))
