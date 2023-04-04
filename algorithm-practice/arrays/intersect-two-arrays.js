@@ -51,3 +51,13 @@ var intersect = function (nums1, nums2) {
 console.log('TEST 1 nums1 = [1,2,2,1], nums2 = [2,2]', intersect([1, 2, 2, 1], [2, 2]))
 console.log('TEST 2 nums1 = [1,2,2,1], nums2 = [2,2]', intersect([2, 2], [1, 2, 2, 1]))
 console.log('TEST 3 nums1 = [4,9,5], nums2 = [9,4,9,8,4]', intersect([4, 9, 5], [9, 4, 9, 8, 4]))
+
+//APPROACH: Set
+
+var intersect2 = function (nums1, nums2) {
+  const unique = new Set(nums1);
+  return [...unique].filter((item) =>  nums2.indexOf(item) !== -1);
+};
+console.log('TEST 1 nums1 = [1,2,2,1], nums2 = [2,2]', intersect2([1, 2, 2, 1], [2, 2]))
+console.log('TEST 2 nums1 = [1,2,2,1], nums2 = [2,2]', intersect2([2, 2], [1, 2, 2, 1]))
+console.log('TEST 3 nums1 = [4,9,5], nums2 = [9,4,9,8,4]', intersect2([4, 9, 5], [9, 4, 9, 8, 4]))
