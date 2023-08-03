@@ -83,3 +83,29 @@ array[0] (1) = array[2] (1)
 1 = 3
 [3, 2, 1, 4, 5]
 */
+
+// RE-Write:
+var Solution = function (nums) {
+  this.original = nums.slice();
+  this.array = nums.slice();
+};
+
+
+Solution.prototype.reset = function () {
+  this.array = this.original.slice();
+  return this.array;
+};
+
+
+Solution.prototype.shuffle = function () {
+  const n = this.original.length;
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [this.array[i], this.array[j]] = [this.array[j], this.array[i]];
+    console.log('i', i, 'j', j)
+    console.log('thisarray[i]', this.array[i], 'this.array[j]', this.array[j])
+
+  }
+  return this.array;
+};
