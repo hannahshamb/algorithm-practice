@@ -51,8 +51,26 @@ var plusOne = function (digits) {
   return newArray;
 };
 
-console.log(plusOne([1, 2, 3]))
-console.log(plusOne([9]))
-console.log(plusOne([9, 9]))
-console.log(plusOne([4, 3, 2, 1]))
-console.log(plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]))
+function plusOne2(digits) {
+  let carry = 1; // Initialize carry to 1 since we want to increment by 1.
+
+  for (let i = digits.length - 1; i >= 0; i--) {
+    let sum = digits[i] + carry;
+    digits[i] = sum % 10; // Update the current digit.
+    carry = Math.floor(sum / 10); // Calculate the carry for the next iteration.
+  }
+
+  // If there's still a carry after the loop, we need to add an additional digit.
+  if (carry > 0) {
+    digits.unshift(carry);
+  }
+
+  return digits;
+}
+
+
+console.log(plusOne2([1, 2, 3]))
+console.log(plusOne2([9]))
+console.log(plusOne2([9, 9]))
+console.log(plusOne2([4, 3, 2, 1]))
+console.log(plusOne2([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]))
